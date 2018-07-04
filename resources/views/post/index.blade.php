@@ -2,6 +2,18 @@
 
 @section('content')
 <div class="container">
+
+	<div class="row justify-content-center">
+		<form action="{{ route('query') }}" method="GET">
+			<div class="row">
+				
+				<input type="text" class="validate" name="search" placeholder="Search Title Here" value="{{ old('title') }}">
+				<button type="submit" class="btn btn-primary">Search</button>
+			</div>
+		</form>
+	</div>
+	<br>
+
     <div class="row ">  <!-- justify-content-center -->
     	
         @foreach ($posts as $post)
@@ -17,9 +29,15 @@
                             <p class="card-text">{{ str_limit($post->content, 100, ' ...') }}</p>
                     </div>
                     <div class="card-footer">
-                        <a href="{{ route('profile.user', $users) }}"><small>{{ $users->name }}</small></a>
-                        <small> | <a href="{{ route('category.science', $post) }}">
-                        	{{ $post->category->name }}</a> | {{ $post->created_at->diffForHumans() }}
+                    	@if($users->name === Auth::user()->name)
+                    	<a href="{{ route('profile.index') }}"><small>{{ $users->name }}</small></a>
+                    	@else
+                    	
+                    	<a href="{{ route('profile.user', $users) }}"><small>{{ $users->name }}</small></a>
+                    	@endif
+                        
+                        <small> | 
+                        	{{ $post->category->name }} | {{ $post->created_at->diffForHumans() }}
                         </small>
                         <div class="row float-right">
                             

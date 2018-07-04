@@ -67,8 +67,9 @@ class AdminController extends Controller
     	return view('admin.commentstable', compact('comments','posts'));
     }
 
-    public function commentsdestroy(Comment $comment)
+    public function commentsdestroy($id)
     {
+    	$comment = Comment::find($id);
     	$comment->delete();
 
     	return redirect()->back()->with('danger', 'Komentar Berhasil Dihapus');
@@ -83,8 +84,9 @@ class AdminController extends Controller
     	return view('admin.userstable', compact('comments','posts', 'users'));
     }
 
-    public function usersdestroy(User $user)
+    public function usersdestroy($id)
     {
+    	$user = User::find($id);
     	$user->delete();
 
     	return redirect()->back()->with('danger', 'User Berhasil Dihapus');

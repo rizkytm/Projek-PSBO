@@ -29,9 +29,7 @@
 											<source src="../storage/{{ $post->video }}" type="video/mp4">
 											Your browser does not support the video tag.
 										</video>
-										<div class="share">
-											<a href="#" class="icon like">Like</a>
-										</div>
+										
 									</div>
 									<div class="col-4"><br>
 						  				<div class="card bg-light mb-3" style="max-width: 18rem;">
@@ -83,9 +81,9 @@
 	                		<h5>{{ $comment->user->name }} - {{ $comment->created_at->diffForHumans() }}</h5>
 	                		<p>{{ $comment->message }}</p>
 	                	@endforeach
-	                </div>
 	                
-	                <div class="card-body">
+	                
+	                
 	                    <form action="{{ route('post.comment.store', $post) }}" method="post" class="form-horizontal">
 	                    	{{ csrf_field() }}
 	                    	<textarea name="message" id="" rows="2" class="form-control" placeholder="Berikan komentar..."></textarea>

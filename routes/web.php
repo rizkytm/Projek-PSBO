@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function(){
 	Route::patch('/post/{post}/edit', 'PostController@update')->name('post.update');
 	Route::delete('/post/{post}/delete', 'PostController@destroy')->name('post.destroy');
 	Route::post('/post/{post}/comment', 'PostCommentController@store')->name('post.comment.store');	
+	Route::get('query', 'SearchController@search')->name('query');
 
 	Route::get('/profile', 'ProfileController@index')->name('profile.index');
 
@@ -43,10 +44,10 @@ Route::middleware('auth')->group(function(){
 	Route::patch('/admin/{post}/edit', 'AdminController@update')->name('postadmin.update');
 
 	Route::get('/admin/commentstable', 'AdminController@commentstable')->name('commentsadmin.view');
-	Route::delete('/admin/{comment}/delete', 'AdminController@commentsdestroy')->name('commentsadmin.destroy');
+	Route::delete('/admin/{comment}', 'AdminController@commentsdestroy')->name('commentsadmin.destroy');
 
 	Route::get('/admin/userstable', 'AdminController@userstable')->name('usersadmin.view');
-	Route::delete('/admin/{user}/delete', 'AdminController@usersdestroy')->name('usersadmin.destroy');
+	Route::delete('/admin/delete/{user}', 'AdminController@usersdestroy')->name('usersadmin.destroy');
 
 	Route::get('/user/{user}', 'ProfileController@user')->name('profile.user');
 

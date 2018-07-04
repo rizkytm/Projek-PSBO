@@ -1,22 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-
-
 <div class="container">
-    <div class="jumbotron">
-        <h1 class="display-4">Bakul {{ Auth::user()->name }}</h1>
-        
-        
-        <h2>Email kamu: {{ Auth::user()->email }}</h2>
-            
-        
-        <!-- <hr class="my-4"> -->
+	<div class="section">
+	@if(count($hasil))
+	<div class="row justify-content-center">
+    	<h3>Hasil Pencarian : {{ $query }}<br></h3>
     </div>
-    <br>
-
-<div class="row ">  <!-- justify-content-center -->
-        @foreach ($posts as $post)
+    <div class="row ">  <!-- justify-content-center -->
+    	
+    	
+        @foreach ($hasil as $post)
         @foreach ($post->user()->get() as $users)
         <div class="col-md-4">    
             <div class="card-deck">
@@ -29,23 +23,17 @@
                             <p class="card-text">{{ str_limit($post->content, 100, ' ...') }}</p>
                     </div>
                     <div class="card-footer">
-                        @if($users->name === Auth::user()->name)
+                    	@if($users->name === Auth::user()->name)
                     	<a href="{{ route('profile.index') }}"><small>{{ $users->name }}</small></a>
                     	@else
                     	
                     	<a href="{{ route('profile.user', $users) }}"><small>{{ $users->name }}</small></a>
                     	@endif
+                        
                         <small> | 
                         	{{ $post->category->name }} | {{ $post->created_at->diffForHumans() }}
                         </small>
-                        <div class="row float-right">
-                            <a href="{{ route('post.edit', $post) }}" class="btn btn-primary">Edit</a>
-                            <form class="" action="{{ route('post.destroy', $post) }}" method="post">
-                                {{ csrf_field() }}
-                                {{ method_field('DELETE') }}    
-                                <button type="submit" class="btn btn-xs btn-danger">Hapus</button>
-                            </form>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -53,5 +41,28 @@
         </div>
         @endforeach
         @endforeach
-    </div></div>
+
+        
+    </div>
+        <center>{!! $hasil->render() !!}</center>
+    </div>
+
+    @else
+    <div class="row justify-content-center">
+		<form action="{{ route('query') }}" method="GET">
+			<div class="row">
+				
+				<input type="text" class="validate" name="search" placeholder="Search Here" value="{{ old('title') }}">
+				<button type="submit" class="btn btn-primary">Search</button>
+			</div>
+		</form>
+		<br></div><br>
+	<div class="row justify-content-center">
+		<h3><font color="red">Hasil pencarian "{{ $query }}" tidak ditemukan</font></h3>
+	</div>
+
+    @endif
+</div>
+
+    
 @endsection

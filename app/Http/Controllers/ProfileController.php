@@ -20,7 +20,7 @@ class ProfileController extends Controller
     public function user(User $user)
     {
     	$users = User::all();
-    	$posts = Post::where("user_id", "=", $user);
+    	$posts = Post::where("user_id", "=", $user->id)->get();
     	return view('user', compact('posts','users','user'));
     }
 }
