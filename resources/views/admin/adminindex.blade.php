@@ -54,22 +54,44 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-book fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                	
+                                    <div class="huge">{{ $countpost }}</div>
+                                    
+                                    <div>Posts!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ route('postadmin.view') }}">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                	
-                                    <div class="huge">26</div>
-                                    
+                                    <div class="huge">{{ $countcomment }}</div>
                                     <div>Comments!</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="{{ route('commentsadmin.view') }}">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -78,42 +100,20 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>New Tasks!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <div class="panel panel-yellow">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-shopping-cart fa-5x"></i>
+                                    <i class="fa fa-user fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>New Orders!</div>
+                                    <div class="huge">{{ $countuser }}</div>
+                                    <div>Users!</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="{{ route('usersadmin.view') }}">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -122,57 +122,45 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-support fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Support Tickets!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                
             </div>
             <!-- /.row -->
-            <div class="container">
+            
     <div class="row ">  <!-- justify-content-center -->
         @foreach ($posts as $post)
         @foreach ($post->user()->get() as $users)
-        <div class="col-md-4">    
-            <div class="card-deck">
-                <div class="card"><br>
-                    <video width = "348" height = "180">
-                        <source src="storage/{{ $post->video }}" type="video/mp4">
-                    </video>
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="{{ route('post.show', $post) }}"><strong>{{ $post->title }}</strong><a/></h5>
-                            <p class="card-text">{{ str_limit($post->content, 100, ' ...') }}</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{{ route('post.show', $post) }}"><small class="text-muted">{{ $users->name }}</small></a>
-                        <small class="text-muted"> | {{ $post->created_at->diffForHumans() }}</small>
+        <div class="col-lg-4 col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <center>
+                            <video width = "290" height = "200">
+                                <source src="storage/{{ $post->video }}" type="video/mp4">
+                            </video>
+                            </center>
+                        </div>
+                        <div class="panel-body">
+                            <h5><a href="{{ route('post.show', $post) }}"><strong>{{ $post->title }}</strong></a></h5>
+                            {{ str_limit($post->content, 100, ' ...') }}
+                        </div>
+                        <div class="panel-footer">
+                            @if($users->name === Auth::user()->name)
+                            <a href="{{ route('profile.index') }}"><small>{{ $users->name }}</small></a>
+                            @else
+                            
+                            <a href="{{ route('profile.user', $users) }}"><small>{{ $users->name }}</small></a>
+                            @endif
+                            
+                            <small> | 
+                                {{ $post->category->name }} | {{ $post->created_at->diffForHumans() }}
+                            </small>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <br>
-        </div>
-        @endforeach
+            @endforeach
         @endforeach
     </div>
         <center>{!! $posts->render() !!}</center>
-    </div>
+    
 </div>
             <!-- /.row -->
         </div>

@@ -16,4 +16,5 @@ class PostCommentController extends Controller
     								));
     	return redirect()->back();
     }
+
 }

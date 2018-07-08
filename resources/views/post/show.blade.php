@@ -79,6 +79,7 @@
                 	<div class="card-body">
                 		@foreach($post->comments()->get() as $comment)
 	                		<h5>{{ $comment->user->name }} - {{ $comment->created_at->diffForHumans() }}</h5>
+	                		
 	                		<p>{{ $comment->message }}</p>
 	                	@endforeach
 	                

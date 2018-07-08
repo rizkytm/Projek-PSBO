@@ -4,7 +4,7 @@
 
 
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-image: url('assets/welcome/gambar/latarfix.jpg'); height: 245px width: 1110px">
         <h1 class="display-4">Bakul {{ Auth::user()->name }}</h1>
         
         
@@ -13,7 +13,6 @@
         
         <!-- <hr class="my-4"> -->
     </div>
-    <br>
 
 <div class="row ">  <!-- justify-content-center -->
         @foreach ($posts as $post)
@@ -40,18 +39,23 @@
                         </small>
                         <div class="row float-right">
                             <a href="{{ route('post.edit', $post) }}" class="btn btn-primary">Edit</a>
-                            <form class="" action="{{ route('post.destroy', $post) }}" method="post">
+                            <!--<form class="delete" action="{{ route('post.destroy', $post) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('DELETE') }}    
-                                <button type="submit" class="btn btn-xs btn-danger">Hapus</button>
-                            </form>
+                                {{ method_field('DELETE') }}    -->
+                                <button type="submit" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete">Hapus</button>
+                            <!-- </form> -->
                         </div>
                     </div>
                 </div>
             </div>
             <br>
+            @include('modal')
         </div>
         @endforeach
         @endforeach
     </div></div>
+
+
+
+
 @endsection

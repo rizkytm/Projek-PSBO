@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
 use App\User;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -32,8 +34,10 @@ class PostController extends Controller
     		'pdf' => 'mimes:pdf'
     	]);
 
-    	$video = $request->file('video')->store('videos');
-    	$pdf = $request->file('pdf')->store('pdfs');
+        $videoname = $request->file('video')->getClientOriginalName();
+    	$video = $request->file('video')->storeAs('videos', $videoname);
+        $pdfname = $request->file('pdf')->getClientOriginalName();
+    	$pdf = $request->file('pdf')->storeAs('pdfs', $pdfname);
     	Post::create([
     		'title' => request('title'),
     		'slug' => str_slug(request('title')),

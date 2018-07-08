@@ -4,7 +4,7 @@
 
 
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-image: url('../assets/welcome/gambar/latarfix.jpg'); height: 245px width: 1110px">
         <h1 class="display-4">Bakul {{ $user->name }}</h1>
         
         
@@ -13,7 +13,6 @@
         
         <!-- <hr class="my-4"> -->
     </div>
-    <br>
 
 <div class="row ">  <!-- justify-content-center -->
         @foreach ($posts as $post)

@@ -16,6 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -31,11 +32,26 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
+
+                    <div class="row justify-content-center">
+                        <form action="{{ route('query') }}" method="GET">
+                            <div class="input-group">
+                                
+                                <input type="text" class="form-control" name="search" placeholder=" Search Title Here" value="{{ old('title') }}">
+
+                                <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

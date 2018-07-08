@@ -100,12 +100,11 @@
                                             <td>
                                             	<a href="{{ route('postadmin.edit', $post) }}" class="btn btn-primary">Edit</a>
 						
-						<form class="" action="{{ route('postadmin.destroy', $post) }}" method="post">
-							{{ csrf_field() }}
-							{{ method_field('DELETE') }}	
-							<button type="submit" class="btn btn-xs btn-danger">Hapus</button>
-						</form></td>
+							
+							<button type="submit" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#deletepost">Hapus</button>
+						</td>
                                         </tr>
+                                        @include('admin.modal.modalpost')
                                         @endforeach
                                         @endforeach
                                     </tbody>
@@ -143,6 +142,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ url('assets/template/dist/js/sb-admin-2.js') }}"></script>
+    
 
 </body>
 

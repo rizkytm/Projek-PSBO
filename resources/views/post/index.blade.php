@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-
+<!--
 	<div class="row justify-content-center">
 		<form action="{{ route('query') }}" method="GET">
 			<div class="row">
@@ -13,7 +13,7 @@
 		</form>
 	</div>
 	<br>
-
+-->
     <div class="row ">  <!-- justify-content-center -->
     	
         @foreach ($posts as $post)
@@ -25,7 +25,7 @@
                         <source src="storage/{{ $post->video }}" type="video/mp4">
                     </video>
                     <div class="card-body">
-                        <h5 class="card-title"><a href="{{ route('post.show', $post) }}"><strong>{{ $post->title }}</strong><a/></h5>
+                        <h5 class="card-title"><a href="{{ route('post.show', $post) }}"><strong>{{ $post->title }}</strong></a></h5>
                             <p class="card-text">{{ str_limit($post->content, 100, ' ...') }}</p>
                     </div>
                     <div class="card-footer">

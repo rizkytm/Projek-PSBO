@@ -93,13 +93,11 @@
                                             <td>{{ $comment->updated_at }}</td>
                                             <td>
                                             							
-						<form class="" action="{{ route('commentsadmin.destroy', $comment) }}" method="post">
-							{{ csrf_field() }}
-							{{ method_field('DELETE') }}	
-							<button type="submit" class="btn btn-xs btn-danger">Hapus</button>
-						</form></td>
+							
+							<button type="submit" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#deletecomment">Hapus</button>
+						</td>
                                         </tr>
-                                        
+                                        @include('admin.modal.modalcomment')
                                         @endforeach
                                         @endforeach
                                         @endforeach

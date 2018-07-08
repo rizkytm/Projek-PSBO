@@ -91,12 +91,12 @@
                                             <td>{{ $user->updated_at }}</td>
                                             <td>
                                             							
-						<form class="" action="{{ route('usersadmin.destroy', $user) }}" method="post">
-							{{ csrf_field() }}
-							{{ method_field('DELETE') }}	
-							<button type="submit" class="btn btn-xs btn-danger">Hapus</button>
-						</form></td>
+							@if($user->name != "Admin")
+							<button type="submit" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#deleteuser">Hapus</button>
+                            @endif
+						</td>
                                         </tr>
+                                        @include('admin.modal.modaluser')
                                         @endforeach
                                     </tbody>
                                 </table>

@@ -2,6 +2,14 @@
 
 @section('content')
 	<div class="container">
+		<div class="row justify-content-center">
+		<div class="col col-md-8">
+		<div class="card">
+			<div class="card-header">
+				<center><b>Create Post</b></center>
+			</div>
+			<div class="card-body">
+		
 		<form class="" action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
 			{{ csrf_field() }}
 			<div class="form-group has-feedback {{ $errors->has('title') ? ' has-error' : '' }}">
@@ -58,4 +66,8 @@
 			</div>
 		</form>
 	</div>
+</div>
+</div>
+</div>
+</div>
 @endsection

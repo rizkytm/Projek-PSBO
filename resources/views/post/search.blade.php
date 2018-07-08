@@ -5,7 +5,7 @@
 	<div class="section">
 	@if(count($hasil))
 	<div class="row justify-content-center">
-    	<h3>Hasil Pencarian : {{ $query }}<br></h3>
+    	<h3><font color="green">Hasil Pencarian : {{ $query }}</font></h3><br>
     </div>
     <div class="row ">  <!-- justify-content-center -->
     	
@@ -48,15 +48,7 @@
     </div>
 
     @else
-    <div class="row justify-content-center">
-		<form action="{{ route('query') }}" method="GET">
-			<div class="row">
-				
-				<input type="text" class="validate" name="search" placeholder="Search Here" value="{{ old('title') }}">
-				<button type="submit" class="btn btn-primary">Search</button>
-			</div>
-		</form>
-		<br></div><br>
+    
 	<div class="row justify-content-center">
 		<h3><font color="red">Hasil pencarian "{{ $query }}" tidak ditemukan</font></h3>
 	</div>

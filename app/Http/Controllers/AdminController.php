@@ -15,8 +15,11 @@ class AdminController extends Controller
     {
     	$comment = Comment::all();
     	$posts = Post::latest()->paginate(6);
+        $countuser = User::count();
+        $countpost = Post::count();
+        $countcomment = Comment::count();
 
-    	return view('admin.adminindex', compact('comment','post', 'posts'));
+    	return view('admin.adminindex', compact('comment','post', 'posts', 'countuser', 'countpost', 'countcomment'));
     }
 
     public function poststable()
