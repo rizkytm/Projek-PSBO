@@ -80,7 +80,7 @@ class PostController extends Controller
     {
     	$post->delete();
 
-    	return redirect()->route('post.index')->with('danger', 'Post Berhasil Dihapus');
+    	return redirect()->back()->with('danger', 'Post Berhasil Dihapus');
     }
 
     public function show(Post $post)

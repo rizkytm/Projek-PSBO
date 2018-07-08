@@ -6,7 +6,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title text-center" id="myModalLabel">Delete Comment Confirmation</h4>
       </div>
-      <form action="{{route('commentsadmin.destroy', $post)}}" method="post">
+      <form action="{{route('commentsadmin.destroy', $comment)}}" method="post">
             {{method_field('delete')}}
             {{csrf_field()}}
           <div class="modal-body">

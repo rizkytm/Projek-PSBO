@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <div class="container">
     <div class="jumbotron" style="background-image: url('assets/welcome/gambar/latarfix.jpg'); height: 245px width: 1110px">
         <h1 class="display-4">Bakul {{ Auth::user()->name }}</h1>
@@ -49,8 +48,9 @@
                 </div>
             </div>
             <br>
-            @include('modal')
+
         </div>
+        @include('modal')
         @endforeach
         @endforeach
     </div></div>
