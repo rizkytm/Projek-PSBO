@@ -1,0 +1,33 @@
+# AWAL BANGET
+download: https://git-scm.com/downloads lalu install
+
+masuk ke htdocs-nya XAMPP
+klik kanan->pilih git bash
+
+jalanin kode di bawah ini satu2
+git clone https://github.com/rizkytm/Projek-PSBO.git
+cd Projek-PSBO
+git config --global user.name "masukkan username"
+git config --global user.email "masukkan email"
+
+git init
+
+
+
+# KALAU MAU UPDATE DATA DARI GIT SEBELUM KITA UPDATE
+git pull origin master
+
+# KALAU MAU MASUKIN DATA
+masukkin semua data atau edit data, terus
+
+git add *
+
+git commit -m tulis_keterangan_bebas
+
+git fetch origin master	<-- ambil/download editan orang lain
+
+git merge origin/master	<-- gabung editan orang lain dan editan kita
+
+git push origin master
+
+Selesai..
