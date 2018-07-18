@@ -55,8 +55,8 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
-                    	@include('layouts.partials._alerts')
+                    @include('layouts.partials._alerts')
+                    <div class="panel panel-default">                    	
                         <div class="panel-heading">
                             Comments Table
                         </div>

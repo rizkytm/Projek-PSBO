@@ -1,17 +1,32 @@
 @if (session('success'))
-<div class="alert alert-success">
-	{{ session('success') }}
+<br>
+<div class="row justify-content-center">
+	<div class="col-4">
+		<div class="alert alert-success">
+			<center>{{ session('success') }}</center>
+		</div>
+	</div>
 </div>
 @endif
 
 @if (session('info'))
-<div class="alert alert-info">
-	{{ session('info') }}
+<br>
+<div class="row justify-content-center">
+	<div class="col-md-4">
+		<div class="alert alert-info">
+			<center>{{ session('info') }}</center>
+		</div>
+	</div>
 </div>
 @endif
 
 @if (session('danger'))
-<div class="alert alert-danger">
-	{{ session('danger') }}
+<br>
+<div class="row justify-content-center">
+	<div class="col-md-4">
+		<div class="alert alert-danger">
+			<center>{{ session('danger') }}</center>
+		</div>
+	</div>
 </div>
 @endif

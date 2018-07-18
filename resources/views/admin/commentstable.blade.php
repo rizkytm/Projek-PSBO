@@ -45,18 +45,18 @@
 
         @include('admin.partials2.sidebar2')
 
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
+        <div id="page-wrapper">            
+            <div class="row">                
+                <div class="col-lg-12">                    
                     <h1 class="page-header">Manage Comments</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <div class="row">
+            <div class="row">                
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
-                    	@include('layouts.partials._alerts')
+                @include('layouts.partials._alerts')                    
+                    <div class="panel panel-default">                    	
                         <div class="panel-heading">
                             Comments Table
                         </div>

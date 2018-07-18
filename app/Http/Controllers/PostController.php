@@ -47,12 +47,6 @@ class PostController extends Controller
     		'video' => $video,
     		'pdf' => $pdf
     	]);
-
-    	
-
-    	/*$request->user()->store([
-    		
-    	]); */
     	
     	return redirect()->route('post.index')->with('success', 'Post Ditambahkan');
     }
@@ -73,7 +67,7 @@ class PostController extends Controller
     		'category_id' => request('category_id'),
     	]);
 
-    	return redirect()->route('post.index')->with('info', 'Post Berhasil Diubah');
+    	return redirect()->route('profile.index')->with('info', 'Post Berhasil Diubah');
     }
 
     public function destroy(Post $post)

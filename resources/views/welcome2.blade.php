@@ -36,7 +36,10 @@
                     @auth
                         <li class="nav-item"><a class="nav-link" href="{{ route('post.index') }}">Home</a></li>
                     @else
-                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login </a><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="{{ route('login') }}">Login </a>
+                          <a class="nav-link" href="{{ route('register') }}">Register</a>
+                        </li>
                         
                     @endauth
                 </div>
@@ -101,9 +104,8 @@
     <!-- Page Content -->
     <section class="py-5">
       <div class="container">
-        <h3>Bantu Kuliah</h3>
-        <p>Sebuah aplikasi berbasis web yang bertujuan untuk membantu mahasiswa yang memiliki kesulitan dalam memahami materi perkuliahan.
-          Bantu Kuliah menawarkan solusi teknologi pembelajaran online yang dapat diakses kapan saja dan dimana saja.</p>
+        <h3 class="text-center">Bantu Kuliah</h3>
+        <p class="text-center">Membantu mahasiswa dalam memahami materi perkuliahan<br>dengan teknologi pembelajaran online yang dapat diakses kapan saja dan di mana saja.</p>
       </div>
     </section>
 

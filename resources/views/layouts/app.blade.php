@@ -36,10 +36,15 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @guest
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
+                    @else
+                    <ul class="navbar-nav mr-auto">
 
+                    </ul>
+                    
                     <div class="row justify-content-center">
                         <form action="{{ route('query') }}" method="GET">
                             <div class="input-group">
@@ -52,6 +57,7 @@
                         </div>
                         </form>
                     </div>
+                    @endguest
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
